@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-const Search = ({ search, setSearch, fetchHandler }) => {
+const Search = ({ setSearch }) => {
+
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetchHandler(event.target.search.value);
+    setSearch(event.target.search.value);
+    let url = `/${event.target.search.value}`;
     event.currentTarget.reset();
+    history.push(url);
   }
+
   return (
     <form className="search-form" onSubmit={handleSubmit} >
       <input type="search"

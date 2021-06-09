@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import NotFound from './NotFound';
 
 const PhotoContainer = ({ data }) => {
 
     // convert data to array
 
     let output = [];
-    data.map((item) => {
+    data.forEach((item) => {
         output.push(item);
     })
 
@@ -13,15 +14,10 @@ const PhotoContainer = ({ data }) => {
         <div className="photo-container">
             <h2>Results</h2>
 
-            {output.length === 0 ? <ul>
-                <li className="not-found">
-                    <h3>No Results Found</h3>
-                    <p>You search did not return any results. Please try again.</p>
-                </li>
-            </ul> : 
+            {output.length === 0 ? <NotFound /> : 
             <ul>
                 {output.map((item) => {
-                    return <li><img alt='pic' src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_n.jpg`} /></li>
+                    return <li key={item.id}><img alt='pic' src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_n.jpg`} /></li>
                 })}
             </ul>
             }

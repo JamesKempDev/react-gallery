@@ -1,7 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Nav = (props) => {
+const Nav = () => {
+
     return (
         <nav className="main-nav">
             <ul>
