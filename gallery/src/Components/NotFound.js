@@ -2,6 +2,8 @@ import React from 'react'
 
 const NotFound = () => {
 
+    // Text to display when no results are found
+
     return (
         <ul>
             <li className="not-found">
